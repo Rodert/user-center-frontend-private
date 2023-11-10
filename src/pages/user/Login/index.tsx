@@ -32,7 +32,11 @@ const LoginMessage: React.FC<{
   />
 );
 const Login: React.FC = () => {
-  const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
+  const [userLoginState, setUserLoginState] = useState<Global.BaseResponse<API.LoginResult>>({
+    code: 0,
+    data: {},
+    message: ""
+  });
   const [type, setType] = useState<string>('account');
   const { initialState, setInitialState } = useModel('@@initialState');
   const fetchUserInfo = async () => {
@@ -51,7 +55,7 @@ const Login: React.FC = () => {
         ...values,
         type,
       });
-      if (msg.status === 'ok') {
+      if (msg.code === 2000) {
         const defaultLoginSuccessMessage = '登录成功！';
         message.success(defaultLoginSuccessMessage);
         await fetchUserInfo();
@@ -72,7 +76,8 @@ const Login: React.FC = () => {
       message.error(defaultLoginFailureMessage);
     }
   };
-  const { status, type: loginType } = userLoginState;
+  // const { status, type: loginType } = userLoginState;
+  const { data: { status, type: loginType }} = userLoginState;
   return (
     <div className={styles.container}>
       <div className={styles.content}>

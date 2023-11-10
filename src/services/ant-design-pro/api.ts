@@ -3,10 +3,18 @@
 import { request } from 'umi';
 
 /** 获取当前的用户 GET /api/currentUser */
+// export async function currentUser(options?: { [key: string]: any }) {
+//   return request<{
+//     data: API.CurrentUser;
+//   }>('/api/currentUser', {
+//     method: 'GET',
+//     ...(options || {}),
+//   });
+// }
 export async function currentUser(options?: { [key: string]: any }) {
-  return request<{
+  return request<Global.BaseResponse<{
     data: API.CurrentUser;
-  }>('/api/currentUser', {
+  }>>('/api/currentUser', {
     method: 'GET',
     ...(options || {}),
   });
@@ -14,15 +22,25 @@ export async function currentUser(options?: { [key: string]: any }) {
 
 /** 退出登录接口 POST /api/login/outLogin */
 export async function outLogin(options?: { [key: string]: any }) {
-  return request<Record<string, any>>('/api/login/outLogin', {
+  return request<Global.BaseResponse<Record<string, any>>>('/api/login/outLogin', {
     method: 'POST',
     ...(options || {}),
   });
 }
 
 /** 登录接口 POST /api/login/account */
+// export async function login(body: API.LoginParams, options?: { [key: string]: any }) {
+//   return request<API.LoginResult>('/api/login/account', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     data: body,
+//     ...(options || {}),
+//   });
+// }
 export async function login(body: API.LoginParams, options?: { [key: string]: any }) {
-  return request<API.LoginResult>('/api/login/account', {
+  return request<Global.BaseResponse<API.LoginResult>>('/api/login/account', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -51,7 +69,7 @@ export async function rule(
   },
   options?: { [key: string]: any },
 ) {
-  return request<API.RuleList>('/api/rule', {
+  return request<Global.BaseResponse<API.RuleList>>('/api/rule', {
     method: 'GET',
     params: {
       ...params,
@@ -62,7 +80,7 @@ export async function rule(
 
 /** 新建规则 PUT /api/rule */
 export async function updateRule(options?: { [key: string]: any }) {
-  return request<API.RuleListItem>('/api/rule', {
+  return request<Global.BaseResponse<API.RuleListItem>>('/api/rule', {
     method: 'PUT',
     ...(options || {}),
   });
@@ -70,7 +88,7 @@ export async function updateRule(options?: { [key: string]: any }) {
 
 /** 新建规则 POST /api/rule */
 export async function addRule(options?: { [key: string]: any }) {
-  return request<API.RuleListItem>('/api/rule', {
+  return request<Global.BaseResponse<API.RuleListItem>>('/api/rule', {
     method: 'POST',
     ...(options || {}),
   });
@@ -78,7 +96,7 @@ export async function addRule(options?: { [key: string]: any }) {
 
 /** 删除规则 DELETE /api/rule */
 export async function removeRule(options?: { [key: string]: any }) {
-  return request<Record<string, any>>('/api/rule', {
+  return request<Global.BaseResponse<Record<string, any>>>('/api/rule', {
     method: 'DELETE',
     ...(options || {}),
   });
