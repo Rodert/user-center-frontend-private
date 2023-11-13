@@ -41,6 +41,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+src/.umi/
 src/.umi/*
 
 # Snowpack dependency directory (https://snowpack.dev/)
