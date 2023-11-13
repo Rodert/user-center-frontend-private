@@ -77,6 +77,31 @@ export async function rule(
     ...(options || {}),
   });
 }
+// 自定义处理返回结构
+// 新的函数，调用rule函数并重新组装返回值
+export async function fetchAndTransformRule(params: {
+  current?: number;
+  pageSize?: number;
+}, options?: { [key: string]: any }): Promise<API.RuleList> {
+  // 调用原始的rule函数
+  const ruleResponse = await rule(params, options);
+
+  // 进行重新组装，这里只是个示例，你需要根据实际情况进行适当的处理
+  // const transformedResult: API.RuleList = {
+  //   // 这里可以根据需要从原始的ruleResponse中提取数据进行组装
+  //   // 例如：data: ruleResponse.data,
+  //   //       totalCount: ruleResponse.totalCount,
+  //   //       其他属性...
+  //
+  //   // 这里假设你要返回整个原始的ruleResponse
+  //   // ...ruleResponse,
+  //   data: ruleResponse.data,
+  // };
+
+  // return transformedResult;
+  return ruleResponse.data
+}
+
 
 /** 新建规则 PUT /api/rule */
 export async function updateRule(options?: { [key: string]: any }) {
