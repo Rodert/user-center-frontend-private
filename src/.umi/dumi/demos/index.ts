@@ -6,7 +6,7 @@ export default {
   'components-demo': {
     component: dynamic({
   loader: async function () {
-    var _interopRequireDefault = require("/Users/shiyuwang/home/me/apps/user-center-frontend-private/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault.js")["default"];
+    var _interopRequireDefault = require("D:/myworkspace/MyJavaPub/user-center-frontend-private/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault.js")["default"];
 
     var _Footer = _interopRequireDefault(await import("@/components/Footer"));
 
@@ -25,7 +25,7 @@ export default {
   'components-demo-1': {
     component: dynamic({
   loader: async function () {
-    var _interopRequireDefault = require("/Users/shiyuwang/home/me/apps/user-center-frontend-private/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault.js")["default"];
+    var _interopRequireDefault = require("D:/myworkspace/MyJavaPub/user-center-frontend-private/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault.js")["default"];
 
     var _HeaderDropdown = _interopRequireDefault(await import("@/components/HeaderDropdown"));
 
@@ -58,7 +58,7 @@ export default {
   'components-demo-2': {
     component: dynamic({
   loader: async function () {
-    var _interopRequireDefault = require("/Users/shiyuwang/home/me/apps/user-center-frontend-private/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault.js")["default"];
+    var _interopRequireDefault = require("D:/myworkspace/MyJavaPub/user-center-frontend-private/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault.js")["default"];
 
     var _HeaderSearch = _interopRequireDefault(await import("@/components/HeaderSearch"));
 
@@ -96,7 +96,7 @@ export default {
   'components-demo-3': {
     component: dynamic({
   loader: async function () {
-    var _interopRequireDefault = require("/Users/shiyuwang/home/me/apps/user-center-frontend-private/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault.js")["default"];
+    var _interopRequireDefault = require("D:/myworkspace/MyJavaPub/user-center-frontend-private/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault.js")["default"];
 
     var _NoticeIcon = _interopRequireDefault(await import("@/components/NoticeIcon/NoticeIcon"));
 

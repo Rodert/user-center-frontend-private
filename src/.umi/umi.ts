@@ -5,8 +5,8 @@ import '../global.tsx';
 import { plugin } from './core/plugin';
 import './core/pluginRegister';
 import { createHistory } from './core/history';
-import { ApplyPluginsType } from '/Users/shiyuwang/home/me/apps/user-center-frontend-private/node_modules/umi/node_modules/@umijs/runtime';
-import { renderClient } from '/Users/shiyuwang/home/me/apps/user-center-frontend-private/node_modules/@umijs/renderer-react/dist/index.js';
+import { ApplyPluginsType } from 'D:/myworkspace/MyJavaPub/user-center-frontend-private/node_modules/umi/node_modules/@umijs/runtime';
+import { renderClient } from 'D:/myworkspace/MyJavaPub/user-center-frontend-private/node_modules/@umijs/renderer-react/dist/index.js';
 import { getRoutes } from './core/routes';
 
 

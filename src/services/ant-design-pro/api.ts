@@ -1,6 +1,6 @@
 // @ts-ignore
 /* eslint-disable */
-import { request } from 'umi';
+import {request} from 'umi';
 
 /** 获取当前的用户 GET /api/currentUser */
 // export async function currentUser(options?: { [key: string]: any }) {
@@ -87,25 +87,25 @@ export async function fetchAndTransformRule(params: {
   const ruleResponse = await rule(params, options);
 
   // 进行重新组装，这里只是个示例，你需要根据实际情况进行适当的处理
-  // const transformedResult: API.RuleList = {
-  //   // 这里可以根据需要从原始的ruleResponse中提取数据进行组装
-  //   // 例如：data: ruleResponse.data,
-  //   //       totalCount: ruleResponse.totalCount,
-  //   //       其他属性...
-  //
-  //   // 这里假设你要返回整个原始的ruleResponse
-  //   // ...ruleResponse,
-  //   data: ruleResponse.data,
-  // };
-
   // return transformedResult;
-  return ruleResponse.data
+  return {
+    // 这里可以根据需要从原始的ruleResponse中提取数据进行组装
+    // 例如：data: ruleResponse.data,
+    //       totalCount: ruleResponse.totalCount,
+    //       其他属性...
+
+    // 这里假设你要返回整个原始的ruleResponse
+    // ...ruleResponse,
+    data: ruleResponse.data.data,
+    success: ruleResponse.data.success,
+    total: ruleResponse.data.total
+  }
 }
 
 
 /** 新建规则 PUT /api/rule */
 export async function updateRule(options?: { [key: string]: any }) {
-  return request<Global.BaseResponse<API.RuleListItem>>('/api/rule', {
+  return request<API.RuleListItem>('/api/rule', {
     method: 'PUT',
     ...(options || {}),
   });
@@ -113,7 +113,7 @@ export async function updateRule(options?: { [key: string]: any }) {
 
 /** 新建规则 POST /api/rule */
 export async function addRule(options?: { [key: string]: any }) {
-  return request<Global.BaseResponse<API.RuleListItem>>('/api/rule', {
+  return request<API.RuleListItem>('/api/rule', {
     method: 'POST',
     ...(options || {}),
   });
@@ -121,7 +121,7 @@ export async function addRule(options?: { [key: string]: any }) {
 
 /** 删除规则 DELETE /api/rule */
 export async function removeRule(options?: { [key: string]: any }) {
-  return request<Global.BaseResponse<Record<string, any>>>('/api/rule', {
+  return request<Record<string, any>>('/api/rule', {
     method: 'DELETE',
     ...(options || {}),
   });
