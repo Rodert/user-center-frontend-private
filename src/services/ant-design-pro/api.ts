@@ -1,6 +1,6 @@
 // @ts-ignore
 /* eslint-disable */
-import { request } from 'umi';
+import { request } from '@umijs/max';
 
 /** 获取当前的用户 GET /api/currentUser */
 export async function currentUser(options?: { [key: string]: any }) {
@@ -60,11 +60,14 @@ export async function rule(
   });
 }
 
-/** 新建规则 PUT /api/rule */
+/** 更新规则 PUT /api/rule */
 export async function updateRule(options?: { [key: string]: any }) {
   return request<API.RuleListItem>('/api/rule', {
-    method: 'PUT',
-    ...(options || {}),
+    method: 'POST',
+    data:{
+      method: 'update',
+      ...(options || {}),
+    }
   });
 }
 
@@ -72,14 +75,20 @@ export async function updateRule(options?: { [key: string]: any }) {
 export async function addRule(options?: { [key: string]: any }) {
   return request<API.RuleListItem>('/api/rule', {
     method: 'POST',
-    ...(options || {}),
+    data:{
+      method: 'post',
+      ...(options || {}),
+    }
   });
 }
 
 /** 删除规则 DELETE /api/rule */
 export async function removeRule(options?: { [key: string]: any }) {
   return request<Record<string, any>>('/api/rule', {
-    method: 'DELETE',
-    ...(options || {}),
+    method: 'POST',
+    data:{
+      method: 'delete',
+      ...(options || {}),
+    }
   });
 }
