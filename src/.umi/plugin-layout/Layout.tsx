@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { useState, useEffect } from "react";
-import { ApplyPluginsType, useModel , traverseModifyRoutes, useAccess } from "umi";
+import { ApplyPluginsType, useModel , useIntl, traverseModifyRoutes, useAccess } from "umi";
 import { plugin } from "../core/umiExports";
 import LayoutComponent from './layout/layout/index.tsx';
 
@@ -39,7 +39,7 @@ export default props => {
     ...runtimeConfig || {}
   };
 
-  
+  const { formatMessage } = useIntl();
 
   if(!runtimeConfig){
     return null
@@ -47,7 +47,7 @@ export default props => {
 
   return React.createElement(LayoutComponent, {
     userConfig,
-    
+    formatMessage,
     ...props
   });
 };

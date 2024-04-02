@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from 'react';
   import { Avatar, Dropdown, Menu, Spin } from 'antd';
-  
+  import { SelectLang } from 'umi';
   import { LogoutOutlined } from '@ant-design/icons';
   import { ILayoutRuntimeConfig } from '../types/interface.d';
 
@@ -65,7 +65,7 @@ import React from 'react';
         ) : (
           avatar
         )}
-        
+        {SelectLang && <SelectLang />}
       </div>
     );
   }

@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React from 'react';
-import { ApplyPluginsType, dynamic } from 'D:/myworkspace/MyJavaPub/user-center-frontend-private/node_modules/umi/node_modules/@umijs/runtime';
+import { ApplyPluginsType, dynamic } from '/Users/shiyuwang/home/me/apps/user-center-frontend-private/node_modules/umi/node_modules/@umijs/runtime';
 import * as umiExports from './umiExports';
 import { plugin } from './plugin';
 import LoadingComponent from '@ant-design/pro-layout/es/PageLoading';
@@ -9,11 +9,11 @@ export function getRoutes() {
   const routes = [
   {
     "path": "/umi/plugin/openapi",
-    "component": dynamic({ loader: () => import(/* webpackChunkName: '.umi__plugin-openapi__openapi' */'D:/myworkspace/MyJavaPub/user-center-frontend-private/src/.umi/plugin-openapi/openapi.tsx'), loading: LoadingComponent})
+    "component": dynamic({ loader: () => import(/* webpackChunkName: '.umi__plugin-openapi__openapi' */'/Users/shiyuwang/home/me/apps/user-center-frontend-private/src/.umi/plugin-openapi/openapi.tsx'), loading: LoadingComponent})
   },
   {
     "path": "/",
-    "component": dynamic({ loader: () => import(/* webpackChunkName: '.umi__plugin-layout__Layout' */'D:/myworkspace/MyJavaPub/user-center-frontend-private/src/.umi/plugin-layout/Layout.tsx'), loading: LoadingComponent}),
+    "component": dynamic({ loader: () => import(/* webpackChunkName: '.umi__plugin-layout__Layout' */'/Users/shiyuwang/home/me/apps/user-center-frontend-private/src/.umi/plugin-layout/Layout.tsx'), loading: LoadingComponent}),
     "routes": [
       {
         "path": "/~demos/:uuid",
@@ -22,7 +22,7 @@ export function getRoutes() {
         "component": ((props) => dynamic({
           loader: async () => {
             const React = await import('react');
-            const { default: getDemoRenderArgs } = await import(/* webpackChunkName: 'dumi_demos' */ 'D:/myworkspace/MyJavaPub/user-center-frontend-private/node_modules/@umijs/preset-dumi/lib/plugins/features/demo/getDemoRenderArgs');
+            const { default: getDemoRenderArgs } = await import(/* webpackChunkName: 'dumi_demos' */ '/Users/shiyuwang/home/me/apps/user-center-frontend-private/node_modules/@umijs/preset-dumi/lib/plugins/features/demo/getDemoRenderArgs');
             const { default: Previewer } = await import(/* webpackChunkName: 'dumi_demos' */ 'dumi-theme-default/es/builtins/Previewer.js');
             const { usePrefersColor, context } = await import(/* webpackChunkName: 'dumi_demos' */ 'dumi/theme');
 
@@ -69,11 +69,11 @@ export function getRoutes() {
         "__dumiRoot": true,
         "layout": false,
         "path": "/~docs",
-        "wrappers": [dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'../dumi/layout'), loading: LoadingComponent}), dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'D:/myworkspace/MyJavaPub/user-center-frontend-private/node_modules/dumi-theme-default/es/layout.js'), loading: LoadingComponent})],
+        "wrappers": [dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'../dumi/layout'), loading: LoadingComponent}), dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'/Users/shiyuwang/home/me/apps/user-center-frontend-private/node_modules/dumi-theme-default/es/layout.js'), loading: LoadingComponent})],
         "routes": [
           {
             "path": "/~docs",
-            "component": dynamic({ loader: () => import(/* webpackChunkName: 'README.md' */'D:/myworkspace/MyJavaPub/user-center-frontend-private/README.md'), loading: LoadingComponent}),
+            "component": dynamic({ loader: () => import(/* webpackChunkName: 'README.md' */'/Users/shiyuwang/home/me/apps/user-center-frontend-private/README.md'), loading: LoadingComponent}),
             "exact": true,
             "meta": {
               "locale": "en-US",
@@ -128,7 +128,7 @@ export function getRoutes() {
           },
           {
             "path": "/~docs/components",
-            "component": dynamic({ loader: () => import(/* webpackChunkName: 'components__index.md' */'D:/myworkspace/MyJavaPub/user-center-frontend-private/src/components/index.md'), loading: LoadingComponent}),
+            "component": dynamic({ loader: () => import(/* webpackChunkName: 'components__index.md' */'/Users/shiyuwang/home/me/apps/user-center-frontend-private/src/components/index.md'), loading: LoadingComponent}),
             "exact": true,
             "meta": {
               "filePath": "src/components/index.md",
@@ -204,48 +204,48 @@ export function getRoutes() {
         "layout": false,
         "routes": [
           {
-            "name": "登录",
+            "name": "login",
             "path": "/user/login",
-            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__user__Login' */'D:/myworkspace/MyJavaPub/user-center-frontend-private/src/pages/user/Login'), loading: LoadingComponent}),
+            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__user__Login' */'/Users/shiyuwang/home/me/apps/user-center-frontend-private/src/pages/user/Login'), loading: LoadingComponent}),
             "exact": true
           },
           {
-            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__404' */'D:/myworkspace/MyJavaPub/user-center-frontend-private/src/pages/404'), loading: LoadingComponent}),
+            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__404' */'/Users/shiyuwang/home/me/apps/user-center-frontend-private/src/pages/404'), loading: LoadingComponent}),
             "exact": true
           }
         ]
       },
       {
         "path": "/welcome",
-        "name": "欢迎",
+        "name": "welcome",
         "icon": "smile",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Welcome' */'D:/myworkspace/MyJavaPub/user-center-frontend-private/src/pages/Welcome'), loading: LoadingComponent}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Welcome' */'/Users/shiyuwang/home/me/apps/user-center-frontend-private/src/pages/Welcome'), loading: LoadingComponent}),
         "exact": true
       },
       {
         "path": "/admin",
-        "name": "管理页",
+        "name": "admin",
         "icon": "crown",
         "access": "canAdmin",
         "routes": [
           {
             "path": "/admin/sub-page",
-            "name": "二级管理页",
+            "name": "sub-page",
             "icon": "smile",
-            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Welcome' */'D:/myworkspace/MyJavaPub/user-center-frontend-private/src/pages/Welcome'), loading: LoadingComponent}),
+            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Welcome' */'/Users/shiyuwang/home/me/apps/user-center-frontend-private/src/pages/Welcome'), loading: LoadingComponent}),
             "exact": true
           },
           {
-            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__404' */'D:/myworkspace/MyJavaPub/user-center-frontend-private/src/pages/404'), loading: LoadingComponent}),
+            "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__404' */'/Users/shiyuwang/home/me/apps/user-center-frontend-private/src/pages/404'), loading: LoadingComponent}),
             "exact": true
           }
         ]
       },
       {
-        "name": "查询表格",
+        "name": "list.table-list",
         "icon": "table",
         "path": "/list",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__TableList' */'D:/myworkspace/MyJavaPub/user-center-frontend-private/src/pages/TableList'), loading: LoadingComponent}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__TableList' */'/Users/shiyuwang/home/me/apps/user-center-frontend-private/src/pages/TableList'), loading: LoadingComponent}),
         "exact": true
       },
       {
@@ -259,7 +259,7 @@ export function getRoutes() {
         "exact": true
       },
       {
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__404' */'D:/myworkspace/MyJavaPub/user-center-frontend-private/src/pages/404'), loading: LoadingComponent}),
+        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__404' */'/Users/shiyuwang/home/me/apps/user-center-frontend-private/src/pages/404'), loading: LoadingComponent}),
         "exact": true
       }
     ]

@@ -6,7 +6,7 @@ export default {
   'components-demo': {
     component: dynamic({
   loader: async function () {
-    var _interopRequireDefault = require("D:/myworkspace/MyJavaPub/user-center-frontend-private/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault.js")["default"];
+    var _interopRequireDefault = require("/Users/shiyuwang/home/me/apps/user-center-frontend-private/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault.js")["default"];
 
     var _Footer = _interopRequireDefault(await import("@/components/Footer"));
 
@@ -25,7 +25,7 @@ export default {
   'components-demo-1': {
     component: dynamic({
   loader: async function () {
-    var _interopRequireDefault = require("D:/myworkspace/MyJavaPub/user-center-frontend-private/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault.js")["default"];
+    var _interopRequireDefault = require("/Users/shiyuwang/home/me/apps/user-center-frontend-private/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault.js")["default"];
 
     var _HeaderDropdown = _interopRequireDefault(await import("@/components/HeaderDropdown"));
 
@@ -53,12 +53,12 @@ export default {
   },
   loading: () => null
 }),
-    previewerProps: {"sources":{"_":{"tsx":"import HeaderDropdown from '@/components/HeaderDropdown';\nimport { Button, Menu } from 'antd';\nimport React from 'react';\n\nexport default () => {\n  const menuHeaderDropdown = (\n    <Menu selectedKeys={[]}>\n      <Menu.Item key=\"center\">个人中心</Menu.Item>\n      <Menu.Item key=\"settings\">个人设置</Menu.Item>\n      <Menu.Divider />\n      <Menu.Item key=\"logout\">退出登录</Menu.Item>\n    </Menu>\n  );\n  return (\n    <HeaderDropdown overlay={menuHeaderDropdown}>\n      <Button>hover 展示菜单</Button>\n    </HeaderDropdown>\n  );\n};"}},"dependencies":{"antd":{"version":"4.24.14","css":"antd/dist/antd.css"},"react":{"version":">=16.9.0"},"react-dom":{"version":">=16.9.0"}},"background":"#f0f2f5","identifier":"components-demo-1"},
+    previewerProps: {"sources":{"_":{"tsx":"import HeaderDropdown from '@/components/HeaderDropdown';\nimport { Button, Menu } from 'antd';\nimport React from 'react';\n\nexport default () => {\n  const menuHeaderDropdown = (\n    <Menu selectedKeys={[]}>\n      <Menu.Item key=\"center\">个人中心</Menu.Item>\n      <Menu.Item key=\"settings\">个人设置</Menu.Item>\n      <Menu.Divider />\n      <Menu.Item key=\"logout\">退出登录</Menu.Item>\n    </Menu>\n  );\n  return (\n    <HeaderDropdown overlay={menuHeaderDropdown}>\n      <Button>hover 展示菜单</Button>\n    </HeaderDropdown>\n  );\n};"}},"dependencies":{"antd":{"version":"4.24.16","css":"antd/dist/antd.css"},"react":{"version":">=16.9.0"},"react-dom":{"version":">=16.9.0"}},"background":"#f0f2f5","identifier":"components-demo-1"},
   },
   'components-demo-2': {
     component: dynamic({
   loader: async function () {
-    var _interopRequireDefault = require("D:/myworkspace/MyJavaPub/user-center-frontend-private/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault.js")["default"];
+    var _interopRequireDefault = require("/Users/shiyuwang/home/me/apps/user-center-frontend-private/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault.js")["default"];
 
     var _HeaderSearch = _interopRequireDefault(await import("@/components/HeaderSearch"));
 
@@ -96,7 +96,7 @@ export default {
   'components-demo-3': {
     component: dynamic({
   loader: async function () {
-    var _interopRequireDefault = require("D:/myworkspace/MyJavaPub/user-center-frontend-private/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault.js")["default"];
+    var _interopRequireDefault = require("/Users/shiyuwang/home/me/apps/user-center-frontend-private/node_modules/@umijs/babel-preset-umi/node_modules/@babel/runtime/helpers/interopRequireDefault.js")["default"];
 
     var _NoticeIcon = _interopRequireDefault(await import("@/components/NoticeIcon/NoticeIcon"));
 
@@ -161,6 +161,6 @@ export default {
   },
   loading: () => null
 }),
-    previewerProps: {"sources":{"_":{"tsx":"import NoticeIcon from '@/components/NoticeIcon/NoticeIcon';\nimport { message } from 'antd';\nimport React from 'react';\n\nexport default () => {\n  const list = [\n    {\n      id: '000000001',\n      avatar: 'https://gw.alipayobjects.com/zos/rmsportal/ThXAXghbEsBCCSDihZxY.png',\n      title: '你收到了 14 份新周报',\n      datetime: '2017-08-09',\n      type: 'notification',\n    },\n    {\n      id: '000000002',\n      avatar: 'https://gw.alipayobjects.com/zos/rmsportal/OKJXDXrmkNshAMvwtvhu.png',\n      title: '你推荐的 曲妮妮 已通过第三轮面试',\n      datetime: '2017-08-08',\n      type: 'notification',\n    },\n  ];\n  return (\n    <NoticeIcon\n      count={10}\n      onItemClick={(item) => {\n        message.info(`${item.title} 被点击了`);\n      }}\n      onClear={(title: string, key: string) => message.info('点击了清空更多')}\n      loading={false}\n      clearText=\"清空\"\n      viewMoreText=\"查看更多\"\n      onViewMore={() => message.info('点击了查看更多')}\n      clearClose\n    >\n      <NoticeIcon.Tab\n        tabKey=\"notification\"\n        count={2}\n        list={list}\n        title=\"通知\"\n        emptyText=\"你已查看所有通知\"\n        showViewMore\n      />\n      <NoticeIcon.Tab\n        tabKey=\"message\"\n        count={2}\n        list={list}\n        title=\"消息\"\n        emptyText=\"您已读完所有消息\"\n        showViewMore\n      />\n      <NoticeIcon.Tab\n        tabKey=\"event\"\n        title=\"待办\"\n        emptyText=\"你已完成所有待办\"\n        count={2}\n        list={list}\n        showViewMore\n      />\n    </NoticeIcon>\n  );\n};"}},"dependencies":{"antd":{"version":"4.24.14","css":"antd/dist/antd.css"},"react":{"version":">=16.9.0"},"react-dom":{"version":">=16.9.0"}},"background":"#f0f2f5","identifier":"components-demo-3"},
+    previewerProps: {"sources":{"_":{"tsx":"import NoticeIcon from '@/components/NoticeIcon/NoticeIcon';\nimport { message } from 'antd';\nimport React from 'react';\n\nexport default () => {\n  const list = [\n    {\n      id: '000000001',\n      avatar: 'https://gw.alipayobjects.com/zos/rmsportal/ThXAXghbEsBCCSDihZxY.png',\n      title: '你收到了 14 份新周报',\n      datetime: '2017-08-09',\n      type: 'notification',\n    },\n    {\n      id: '000000002',\n      avatar: 'https://gw.alipayobjects.com/zos/rmsportal/OKJXDXrmkNshAMvwtvhu.png',\n      title: '你推荐的 曲妮妮 已通过第三轮面试',\n      datetime: '2017-08-08',\n      type: 'notification',\n    },\n  ];\n  return (\n    <NoticeIcon\n      count={10}\n      onItemClick={(item) => {\n        message.info(`${item.title} 被点击了`);\n      }}\n      onClear={(title: string, key: string) => message.info('点击了清空更多')}\n      loading={false}\n      clearText=\"清空\"\n      viewMoreText=\"查看更多\"\n      onViewMore={() => message.info('点击了查看更多')}\n      clearClose\n    >\n      <NoticeIcon.Tab\n        tabKey=\"notification\"\n        count={2}\n        list={list}\n        title=\"通知\"\n        emptyText=\"你已查看所有通知\"\n        showViewMore\n      />\n      <NoticeIcon.Tab\n        tabKey=\"message\"\n        count={2}\n        list={list}\n        title=\"消息\"\n        emptyText=\"您已读完所有消息\"\n        showViewMore\n      />\n      <NoticeIcon.Tab\n        tabKey=\"event\"\n        title=\"待办\"\n        emptyText=\"你已完成所有待办\"\n        count={2}\n        list={list}\n        showViewMore\n      />\n    </NoticeIcon>\n  );\n};"}},"dependencies":{"antd":{"version":"4.24.16","css":"antd/dist/antd.css"},"react":{"version":">=16.9.0"},"react-dom":{"version":">=16.9.0"}},"background":"#f0f2f5","identifier":"components-demo-3"},
   },
 };
