@@ -92,6 +92,18 @@ export const errorConfig: RequestConfig = {
       const url = config?.url?.concat('?token = 123');
       return { ...config, url };
     },
+    // TODO 测试获取 token
+    (url, options) => {
+      let token = localStorage.getItem('token');
+      if (null === token) {
+        token = '';
+      }
+      const authHeader = { Authorization: `Bearer1 ${token}` };
+      return {
+        url: url,
+        options: { ...options, interceptors: true, headers: authHeader },
+      }
+    },
   ],
 
   // 响应拦截器
