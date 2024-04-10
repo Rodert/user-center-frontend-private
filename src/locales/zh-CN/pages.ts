@@ -64,4 +64,11 @@ export default {
   'pages.searchTable.tenThousand': '万',
   'pages.searchTable.batchDeletion': '批量删除',
   'pages.searchTable.batchApproval': '批量审批',
+  'pages.searchUserTable.title': '用户列表',
+  'pages.searchUserTable.updateForm.userAccount': '用户名称',
+  'pages.searchUserTable.updateForm.userPassword': '用户密码',
+  'pages.searchUserTable.createForm.newUser': '新建用户',
+  'pages.searchUserTable.userAccount': '用户名称为必填项',
+  'pages.searchUserTable.titleOption': '操作',
+  'pages.searchUserTable.config': '按钮',
 };

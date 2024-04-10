@@ -68,6 +68,18 @@ declare namespace API {
     type?: string;
   };
 
+  type UserList = {
+    data?: UserListItem[];
+    /** 列表的内容总数 */
+    total?: number;
+    success?: boolean;
+  };
+
+  type UserListItem = {
+    userAccount?: string;
+    userPassword?: string;
+  };
+
   type ErrorResponse = {
     /** 业务约定的错误码 */
     errorCode: string;

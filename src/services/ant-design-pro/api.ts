@@ -92,3 +92,58 @@ export async function removeRule(options?: { [key: string]: any }) {
     },
   });
 }
+
+// --------- 用户列表
+
+/** 获取规则列表 GET /api/rule */
+export async function user(
+  params: {
+    // query
+    /** 当前的页码 */
+    current?: number;
+    /** 页面的容量 */
+    pageSize?: number;
+  },
+  options?: { [key: string]: any },
+) {
+  return request<API.UserList>('/api/rule', {
+    method: 'GET',
+    params: {
+      ...params,
+    },
+    ...(options || {}),
+  });
+}
+
+/** 更新规则 PUT /api/rule */
+export async function updateUser(options?: { [key: string]: any }) {
+  return request<API.RuleListItem>('/api/rule', {
+    method: 'POST',
+    data: {
+      method: 'update',
+      ...(options || {}),
+    },
+  });
+}
+
+/** 新建规则 POST /api/rule */
+export async function addUser(options?: { [key: string]: any }) {
+  return request<API.RuleListItem>('/api/rule', {
+    method: 'POST',
+    data: {
+      method: 'post',
+      ...(options || {}),
+    },
+  });
+}
+
+/** 删除规则 DELETE /api/rule */
+export async function removeUser(options?: { [key: string]: any }) {
+  return request<Record<string, any>>('/api/rule', {
+    method: 'POST',
+    data: {
+      method: 'delete',
+      ...(options || {}),
+    },
+  });
+}
