@@ -93,9 +93,9 @@ export async function removeRule(options?: { [key: string]: any }) {
   });
 }
 
-// --------- 用户列表
+// --------- 用户列表 -----
 
-/** 获取规则列表 GET /api/rule */
+/** 获取用户列表 GET /api/user/search */
 export async function user(
   params: {
     // query
@@ -106,7 +106,7 @@ export async function user(
   },
   options?: { [key: string]: any },
 ) {
-  return request<API.UserList>('/api/rule', {
+  return request<API.UserList>('/api/user/search', {
     method: 'GET',
     params: {
       ...params,
@@ -115,9 +115,9 @@ export async function user(
   });
 }
 
-/** 更新规则 PUT /api/rule */
+/** 更新用户 PUT /api/user/update */
 export async function updateUser(options?: { [key: string]: any }) {
-  return request<API.RuleListItem>('/api/rule', {
+  return request<API.UserListItem>('/api/user/update', {
     method: 'POST',
     data: {
       method: 'update',
@@ -126,9 +126,9 @@ export async function updateUser(options?: { [key: string]: any }) {
   });
 }
 
-/** 新建规则 POST /api/rule */
+/** 新建用户 POST /api/user/add */
 export async function addUser(options?: { [key: string]: any }) {
-  return request<API.RuleListItem>('/api/rule', {
+  return request<API.UserListItem>('/api/user/add', {
     method: 'POST',
     data: {
       method: 'post',
@@ -137,9 +137,9 @@ export async function addUser(options?: { [key: string]: any }) {
   });
 }
 
-/** 删除规则 DELETE /api/rule */
+/** 删除用户 DELETE /api/user/delete */
 export async function removeUser(options?: { [key: string]: any }) {
-  return request<Record<string, any>>('/api/rule', {
+  return request<Record<string, any>>('/api/user/delete', {
     method: 'POST',
     data: {
       method: 'delete',

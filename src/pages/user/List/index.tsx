@@ -1,4 +1,4 @@
-import { addUser, updateUser, user } from '@/services/ant-design-pro/api';
+import { addUser, removeUser, updateUser, user } from '@/services/ant-design-pro/api';
 import { PlusOutlined } from '@ant-design/icons';
 import type { ActionType, ProColumns, ProDescriptionsItemProps } from '@ant-design/pro-components';
 import {
@@ -6,6 +6,7 @@ import {
   ModalForm,
   PageContainer,
   ProDescriptions,
+  ProFormSelect,
   ProFormText,
   ProFormTextArea,
   ProTable,
@@ -24,9 +25,14 @@ import UpdateForm from './components/UpdateForm';
 const handleAdd = async (fields: API.UserListItem) => {
   const hide = message.loading('正在添加');
   try {
-    await addUser({ ...fields });
+    const addUserResult = await addUser({ ...fields });
     hide();
-    message.success('Added successfully');
+    if (addUserResult.code === 0) {
+      message.success('Added user successfully');
+    } else {
+      message.success(addUserResult.description);
+    }
+
     return true;
   } catch (error) {
     hide();
@@ -43,11 +49,13 @@ const handleAdd = async (fields: API.UserListItem) => {
  */
 const handleUpdate = async (fields: FormValueType) => {
   const hide = message.loading('Configuring');
+  console.log('fields');
+  console.log(fields);
   try {
     await updateUser({
-      name: fields.name,
-      desc: fields.desc,
-      key: fields.key,
+      userAccount: fields.userAccount,
+      id: fields.id,
+      avatarUrl: fields.avatarUrl,
     });
     hide();
 
@@ -56,6 +64,29 @@ const handleUpdate = async (fields: FormValueType) => {
   } catch (error) {
     hide();
     message.error('Configuration failed, please try again!');
+    return false;
+  }
+};
+
+/**
+ *  Delete node
+ * @zh-CN 删除节点
+ *
+ * @param selectedRows
+ */
+const handleRemove = async (selectedRows: API.UserListItem[]) => {
+  const hide = message.loading('正在删除');
+  if (!selectedRows) return true;
+  try {
+    await removeUser({
+      ids: selectedRows.map((row) => row.id),
+    });
+    hide();
+    message.success('Deleted successfully and will refresh soon');
+    return true;
+  } catch (error) {
+    hide();
+    message.error('Delete failed, please try again');
     return false;
   }
 };
@@ -86,14 +117,31 @@ const UserList: React.FC = () => {
 
   const columns: ProColumns<API.UserListItem>[] = [
     {
+      title: <FormattedMessage id="pages.searchUserTable.updateForm.id" defaultMessage="user id" />,
+      dataIndex: 'id',
+      tip: '这是用户名ID',
+      render: (dom, entity) => {
+        return (
+          <a
+            onClick={() => {
+              setCurrentRow(entity);
+              setShowDetail(true);
+            }}
+          >
+            {dom}
+          </a>
+        );
+      },
+    },
+    {
       title: (
         <FormattedMessage
           id="pages.searchUserTable.updateForm.userAccount"
-          defaultMessage="Rule name"
+          defaultMessage="user name"
         />
       ),
       dataIndex: 'userAccount',
-      tip: '这是用户名列',
+      tip: '这是用户列',
       render: (dom, entity) => {
         return (
           <a
@@ -111,7 +159,7 @@ const UserList: React.FC = () => {
       title: (
         <FormattedMessage
           id="pages.searchUserTable.updateForm.userPassword"
-          defaultMessage="Rule name"
+          defaultMessage="user password"
         />
       ),
       dataIndex: 'userPassword',
@@ -141,7 +189,7 @@ const UserList: React.FC = () => {
             setCurrentRow(record);
           }}
         >
-          <FormattedMessage id="pages.searchUserTable.config" defaultMessage="测试按钮" />
+          <FormattedMessage id="pages.searchUserTable.config" defaultMessage="按钮" />
         </a>,
       ],
     },
@@ -156,7 +204,7 @@ const UserList: React.FC = () => {
           defaultMessage: 'Enquiry form',
         })}
         actionRef={actionRef}
-        rowKey="key"
+        rowKey="id"
         search={{
           labelWidth: 120,
         }}
@@ -187,22 +235,19 @@ const UserList: React.FC = () => {
               <FormattedMessage id="pages.searchTable.chosen" defaultMessage="Chosen" />{' '}
               <a style={{ fontWeight: 600 }}>{selectedUserRowsState.length}</a>{' '}
               <FormattedMessage id="pages.searchTable.item" defaultMessage="项" />
-              &nbsp;&nbsp;
-              <span>
-                <FormattedMessage
-                  id="pages.searchTable.totalServiceCalls"
-                  defaultMessage="Total number of service calls"
-                />{' '}
-                {selectedUserRowsState.reduce((pre, item) => pre + item.callNo!, 0)}{' '}
-                <FormattedMessage id="pages.searchTable.tenThousand" defaultMessage="万" />
-              </span>
             </div>
           }
         >
-          <Button type="primary">
+          <Button
+            onClick={async () => {
+              await handleRemove(selectedUserRowsState);
+              setSelectedRows([]);
+              actionRef.current?.reloadAndRest?.();
+            }}
+          >
             <FormattedMessage
-              id="pages.searchTable.batchApproval"
-              defaultMessage="Batch approval"
+              id="pages.searchUserTable.batchDeletion"
+              defaultMessage="Batch deletion"
             />
           </Button>
         </FooterToolbar>
@@ -238,10 +283,35 @@ const UserList: React.FC = () => {
               ),
             },
           ]}
+          label="账户"
           width="md"
           name="userAccount"
+          placeholder={'请输入账户...'}
         />
-        <ProFormTextArea width="md" name="userPassword" />
+        <ProFormTextArea
+          rules={[{ required: true }]}
+          label="密码"
+          width="md"
+          name="userPassword"
+          placeholder={'请输入密码...'}
+        />
+        <ProFormTextArea
+          rules={[{ required: true }]}
+          label="星球编号"
+          width="md"
+          name="planetCode"
+          placeholder={'请输入星球编号...'}
+        />
+        <ProFormSelect
+          name="userRole"
+          label="角色"
+          valueEnum={{
+            0: '普通用户',
+            1: '管理员',
+          }}
+          placeholder="请选择用户角色"
+          rules={[{ required: true, message: '请选择用户角色!' }]}
+        />
       </ModalForm>
       <UpdateForm
         onSubmit={async (value) => {

@@ -44,7 +44,7 @@ create table user
     comment '用户';
 
 INSERT INTO yupi.`user` (username,userAccount,avatarUrl,gender,userPassword,phone,email,userStatus,createTime,updateTime,isDelete,userRole,planetCode) VALUES
-	 ('1111','1111','https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',NULL,'f8de235116ca2ec0b8ee885b5c743072',NULL,NULL,0,'2024-04-09 10:20:16','2024-04-09 10:20:16',0,0,NULL);
+	 ('1111','1111','https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',NULL,'f8de235116ca2ec0b8ee885b5c743072',NULL,NULL,0,'2024-04-09 10:20:16','2024-04-09 10:20:16',0,1,NULL);
 
 ```
 

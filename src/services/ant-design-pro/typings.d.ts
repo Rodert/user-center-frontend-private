@@ -76,6 +76,7 @@ declare namespace API {
   };
 
   type UserListItem = {
+    id?: number;
     userAccount?: string;
     userPassword?: string;
   };
