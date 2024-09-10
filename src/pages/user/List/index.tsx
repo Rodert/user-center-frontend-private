@@ -53,7 +53,8 @@ const handleUpdate = async (fields: FormValueType) => {
   console.log(fields);
   try {
     await updateUser({
-      userAccount: fields.userAccount,
+      // userAccount: fields.userAccount,
+      username: fields.username,
       id: fields.id,
       avatarUrl: fields.avatarUrl,
     });
@@ -137,11 +138,33 @@ const UserList: React.FC = () => {
       title: (
         <FormattedMessage
           id="pages.searchUserTable.updateForm.userAccount"
-          defaultMessage="user name"
+          defaultMessage="user account"
         />
       ),
       dataIndex: 'userAccount',
-      tip: '这是用户列',
+      tip: '这是用户账号列',
+      render: (dom, entity) => {
+        return (
+          <a
+            onClick={() => {
+              setCurrentRow(entity);
+              setShowDetail(true);
+            }}
+          >
+            {dom}
+          </a>
+        );
+      },
+    },
+    {
+      title: (
+        <FormattedMessage
+          id="pages.searchUserTable.updateForm.userName"
+          defaultMessage="user name"
+        />
+      ),
+      dataIndex: 'username',
+      tip: '这是用户名列',
       render: (dom, entity) => {
         return (
           <a
@@ -189,7 +212,7 @@ const UserList: React.FC = () => {
             setCurrentRow(record);
           }}
         >
-          <FormattedMessage id="pages.searchUserTable.config" defaultMessage="按钮" />
+          <FormattedMessage id="pages.searchUserTable.update" defaultMessage="按钮" />
         </a>,
       ],
     },

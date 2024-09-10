@@ -4,6 +4,7 @@ import { Modal } from 'antd';
 import React from 'react';
 
 export type FormValueType = {
+  username?: string;
   userAccount?: string;
   userPassword?: string;
   id?: number;
@@ -78,9 +79,9 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
           ]}
         />
         <ProFormText
-          name="userAccount"
+          name="username"
           label={intl.formatMessage({
-            id: 'pages.searchUserTable.updateForm.userAccount.accountLabel',
+            id: 'pages.searchUserTable.updateForm.userName',
             defaultMessage: '用户名称',
           })}
           width="md"
@@ -89,7 +90,7 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
               required: true,
               message: (
                 <FormattedMessage
-                  id="pages.searchUserTable.updateForm.userAccount.accountUser"
+                  id="pages.searchUserTable.updateForm.userName.callWord"
                   defaultMessage="请输入用户名称！"
                 />
               ),
